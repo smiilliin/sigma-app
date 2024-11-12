@@ -20,7 +20,7 @@ load(target).then((t) => {
 
 function load(target: number): Promise<number> {
   mask[target] = true;
-  const a = Math.max(Math.min(Math.abs(random() / 10), 1), 0);
+  const a = Math.max(Math.min(Math.abs(1 - random() / 10), 1), 0);
 
   return new Promise((resolve, reject) => {
     fetch(`https://sigma.smiilliin.com/?target=${target}`)
