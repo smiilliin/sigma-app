@@ -14,9 +14,7 @@ let mask = Array(71).fill(false);
 let target = Math.floor(Math.random() * 71);
 mask[target] = true;
 
-load(target).then((t) => {
-  target = t;
-});
+window.idQueue.push(getIDFromURL(mapping[target].url));
 
 function load(target: number): Promise<number> {
   mask[target] = true;
