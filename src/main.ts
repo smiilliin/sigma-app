@@ -14,11 +14,12 @@ let mask = Array(71).fill(false);
 let target = Math.floor(Math.random() * 71);
 mask[target] = true;
 
+window.idQueue = [];
 window.idQueue.push(getIDFromURL(mapping[target].url));
 
 function load(target: number): Promise<number> {
   mask[target] = true;
-  const a = Math.max(Math.min(Math.abs(1 - Math.abs(random() / 10)), 1), 0);
+  const a = Math.max(Math.min(Math.abs(1 - Math.abs(random() / 20)), 1), 0);
 
   return new Promise((resolve, reject) => {
     fetch(`https://sigma.smiilliin.com/?target=${target}`)
